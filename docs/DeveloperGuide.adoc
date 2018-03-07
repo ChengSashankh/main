@@ -806,41 +806,15 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* * *` |user |find a person by name |locate details of persons without having to go through the entire list
 
-|`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
-
-|`*` |user with many persons in the address book |sort persons by name |locate a person easily
-
 |`* * *` |user who wants to record notes |add a note entry for a person |record more information about the person
-
-|`* *` |user who uses many applications |export search result to CSV/JSON |import them into other applications
-
-|`* *` |with many contacts |set profile pictures for contacts |identify and remember them |`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
-
-|`* *` |user |read all notes about a contact |remember my past interactions and research about the contact
-
-|`*` |user concerned about confidentiality |set a password for the AddressBook |My address book will be secure
-
-|`* *` |user with multiple address books |export my contacts |import into another address book application
-
-|`* *` |user with multiple devices |back up my address book in the cloud |data is accessible from other devices
-
-|`* * *` |user with frequently changing contacts |delete a person |to remove irrelevant data from address book
-
-|`*` |user with frequently changing contacts |clear the entire address book |to start with new candidates when required
 
 |`* * *` |user interested in a contact's skills |get the technical skills of a candidate |to find suitable candidates
 
-|`* *` |user interested in specific skills |search candidates by skill |to find suitable candidates easily
-
-|`* *` |user who is recruiting |search by graduation year |to find suitable full/part time candidates
-
-|`* *` |user interested in checking projects |access contacts' Github repositories |easily view and evaluate projects
-
-|`*` |user who frequently emails contacts |open an email link to the contact directly |quickly email candidates with copying their addresses
-
-|`*` |user who types many commands |get autocomplete suggestion |quickly complete command
-
 |`* * *` |user who saves many resumes |open candidates' resumes from commandline |to quickly view their profiles
+
+|`* * *` |User |delete a tag from address book |to remove tags I am no longer interested in
+
+|`* *` |user |hide <<private-contact-detail,private contact details>> by default |minimize chance of someone else seeing them by accident
 
 |`* *` |user with multiple address books |export my contacts |import into another address book application
 
@@ -850,7 +824,40 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`* *` |User |view my search history |to keep track of my previous searches
 
-|`* * *` |User |delete a tag from address book |to remove tags I am no longer interested in
+|`* *` |user interested in specific skills |search candidates by skill |to find suitable candidates easily
+
+|`* *` |user who is recruiting |search by graduation year |to find suitable full/part time candidates
+
+|`* *` |user interested in checking projects |access contacts' Github repositories |easily view and evaluate projects
+
+|`* *` |user who uses many applications |export search result to CSV/JSON |import them into other applications
+
+|`* *` |with many contacts |set profile pictures for contacts |identify and remember them |`* * *` |new user |see usage instructions |refer to instructions when I forget how to use the App
+
+|`* *` |user |read all notes about a contact |remember my past interactions and research about the contact
+
+|`* *` |user with multiple address books |export my contacts |import into another address book application
+
+|`* *` |user with multiple devices |back up my address book in the cloud |data is accessible from other devices
+
+|`*` |user with many persons in the address book |sort persons by name |locate a person easily
+
+|`*` |user concerned about confidentiality |set a password for the AddressBook |My address book will be secure
+
+|`*` |user with frequently changing contacts |clear the entire address book |to start with new candidates when required
+
+
+
+
+|`*` |user who frequently emails contacts |open an email link to the contact directly |quickly email candidates with copying their addresses
+
+|`*` |user who types many commands |get autocomplete suggestion |quickly complete command
+
+
+
+
+
+
 
 |=======================================================================
 
