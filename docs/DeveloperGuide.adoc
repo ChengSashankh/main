@@ -846,18 +846,9 @@ Priorities: High (must have) - `* * \*`, Medium (nice to have) - `* \*`, Low (un
 
 |`*` |user with frequently changing contacts |clear the entire address book |to start with new candidates when required
 
-
-
-
 |`*` |user who frequently emails contacts |open an email link to the contact directly |quickly email candidates with copying their addresses
 
 |`*` |user who types many commands |get autocomplete suggestion |quickly complete command
-
-
-
-
-
-
 
 |=======================================================================
 
