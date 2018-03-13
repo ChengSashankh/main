@@ -24,6 +24,7 @@ import seedu.address.model.person.Email;
 import seedu.address.model.person.Name;
 import seedu.address.model.person.Person;
 import seedu.address.model.person.Phone;
+import seedu.address.model.person.SkillsList;
 import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 import seedu.address.model.tag.Tag;
@@ -108,8 +109,9 @@ public class EditCommand extends UndoableCommand {
         Email updatedEmail = editPersonDescriptor.getEmail().orElse(personToEdit.getEmail());
         Address updatedAddress = editPersonDescriptor.getAddress().orElse(personToEdit.getAddress());
         Set<Tag> updatedTags = editPersonDescriptor.getTags().orElse(personToEdit.getTags());
+        SkillsList updatedSkillsList = editPersonDescriptor.getSkillsList().orElse(personToEdit.getSkillsList());
 
-        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Person(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags, updatedSkillsList);
     }
 
     @Override
@@ -141,6 +143,7 @@ public class EditCommand extends UndoableCommand {
         private Email email;
         private Address address;
         private Set<Tag> tags;
+        private SkillsList skillsList;
 
         public EditPersonDescriptor() {}
 
@@ -154,13 +157,20 @@ public class EditCommand extends UndoableCommand {
             setEmail(toCopy.email);
             setAddress(toCopy.address);
             setTags(toCopy.tags);
+            setSkillsList(toCopy.skillsList);
         }
 
         /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(this.name, this.phone, this.email, this.address, this.tags);
+            return CollectionUtil.isAnyNonNull(
+                    this.name,
+                    this.phone,
+                    this.email,
+                    this.address,
+                    this.tags,
+                    this.skillsList);
         }
 
         public void setName(Name name) {
@@ -212,6 +222,14 @@ public class EditCommand extends UndoableCommand {
             return (tags != null) ? Optional.of(Collections.unmodifiableSet(tags)) : Optional.empty();
         }
 
+        public void setSkillsList(SkillsList skillsList) {
+            this.skillsList = skillsList;
+        }
+
+        public Optional<SkillsList> getSkillsList() {
+            return Optional.ofNullable(skillsList);
+        }
+
         @Override
         public boolean equals(Object other) {
             // short circuit if same object
@@ -231,7 +249,8 @@ public class EditCommand extends UndoableCommand {
                     && getPhone().equals(e.getPhone())
                     && getEmail().equals(e.getEmail())
                     && getAddress().equals(e.getAddress())
-                    && getTags().equals(e.getTags());
+                    && getTags().equals(e.getTags())
+                    && getSkillsList().equals(e.getSkillsList());
         }
     }
 }

@@ -19,13 +19,14 @@ public class Person {
     private final Phone phone;
     private final Email email;
     private final Address address;
+    private final SkillsList skillsList;
 
     private final UniqueTagList tags;
 
     /**
      * Every field must be present and not null.
      */
-    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
+    public Person(Name name, Phone phone, Email email, Address address, Set<Tag> tags, SkillsList skillsList) {
         requireAllNonNull(name, phone, email, address, tags);
         this.name = name;
         this.phone = phone;
@@ -33,6 +34,7 @@ public class Person {
         this.address = address;
         // protect internal tags from changes in the arg list
         this.tags = new UniqueTagList(tags);
+        this.skillsList = skillsList;
     }
 
     public Name getName() {
@@ -49,6 +51,10 @@ public class Person {
 
     public Address getAddress() {
         return address;
+    }
+
+    public SkillsList getSkillsList() {
+        return skillsList;
     }
 
     /**

@@ -4,19 +4,11 @@ import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.core.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SKILLS;
 
-import java.util.Collection;
-import java.util.Collections;
-import java.util.Optional;
-import java.util.Set;
-
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.logic.commands.EditCommand;
-import seedu.address.logic.commands.EditCommand.EditPersonDescriptor;
 import seedu.address.logic.commands.SkillsCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.person.SkillsList;
-import seedu.address.model.tag.Tag;
 
 /**
  * Parses input arguments and creates a new SkillsCommand object
