@@ -79,7 +79,7 @@ public class SkillsCommand extends UndoableCommand {
                 personToAddSkills.getEmail(),
                 personToAddSkills.getAddress(),
                 personToAddSkills.getTags(),
-                personToAddSkills.getSkillsList()
+                skillsList
         );
 
         return personWithSkills;
