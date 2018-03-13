@@ -56,7 +56,7 @@ public class PersonCard extends UiPart<Region> {
     }
 
     /**
-     * Add comment!!
+     * TODO: Add comment!!
      * @param person
      */
     private void initTags(Person person) {
@@ -68,7 +68,7 @@ public class PersonCard extends UiPart<Region> {
     }
 
     /**
-     * Add comment!!
+     * TODO: Add comment!!
      * @param tagName
      * @return
      */

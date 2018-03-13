@@ -1,10 +1,19 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.commands.EditCommand.MESSAGE_DUPLICATE_PERSON;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_SKILLS;
+import static seedu.address.model.Model.PREDICATE_SHOW_ALL_PERSONS;
 
+import java.util.List;
+
+import seedu.address.commons.core.Messages;
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.person.Person;
 import seedu.address.model.person.SkillsList;
+import seedu.address.model.person.exceptions.DuplicatePersonException;
+import seedu.address.model.person.exceptions.PersonNotFoundException;
 
 /**
  * Clears the address book.
@@ -13,6 +22,8 @@ public class SkillsCommand extends UndoableCommand {
 
     private final Index index;
     private final SkillsList skillsList;
+    private Person personToAddSkills;
+    private Person personWithSkills;
 
     public static final String COMMAND_WORD = "skills";
     // public static final String COMMAND_ALIAS = "sk";
@@ -35,11 +46,43 @@ public class SkillsCommand extends UndoableCommand {
     }
 
     @Override
-    public CommandResult executeUndoableCommand() {
+    public CommandResult executeUndoableCommand() throws CommandException {
         // TODO: Exception to be thrown
+        List<Person> lastShownList = model.getFilteredPersonList();
 
+        if (index.getZeroBased() >= lastShownList.size()) {
+            throw new CommandException(Messages.MESSAGE_INVALID_PERSON_DISPLAYED_INDEX);
+        }
 
+        personToAddSkills = lastShownList.get(index.getZeroBased());
+        personWithSkills = addSkillsToPerson(personToAddSkills, skillsList);
+
+        try {
+            model.updatePerson(personToAddSkills, personWithSkills);
+        } catch (DuplicatePersonException dpe) {
+            throw new CommandException(MESSAGE_DUPLICATE_PERSON);
+        } catch (PersonNotFoundException pnfe) {
+            throw new AssertionError("The target person cannot be missing");
+        }
+        model.updateFilteredPersonList(PREDICATE_SHOW_ALL_PERSONS);
         return new CommandResult(MESSAGE_SUCCESS);
+    }
+
+    /***
+     * TODO: Write comment here.
+     * @return
+     */
+    public static Person addSkillsToPerson(Person personToAddSkills, SkillsList skillsList) {
+        Person personWithSkills = new Person(
+                personToAddSkills.getName(),
+                personToAddSkills.getPhone(),
+                personToAddSkills.getEmail(),
+                personToAddSkills.getAddress(),
+                personToAddSkills.getTags(),
+                personToAddSkills.getSkillsList()
+        );
+
+        return personWithSkills;
     }
 }
 

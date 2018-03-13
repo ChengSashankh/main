@@ -39,7 +39,7 @@ public class SkillsCommandParser implements Parser<SkillsCommand> {
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);
         }
-
+        System.out.println("Skills for " + index.toString() + " are " + skillsList.toString());
         return new SkillsCommand(index, skillsList);
         // TODO: Review the necessity of a skills command descriptor.
     }

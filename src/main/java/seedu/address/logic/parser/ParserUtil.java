@@ -77,7 +77,7 @@ public class ParserUtil {
     public static SkillsList parseSkillsList(String skillsList) throws IllegalValueException {
         requireNonNull(skillsList);
         String trimmedSkillsList = skillsList.trim();
-        if (!Name.isValidName(trimmedSkillsList)) {
+        if (!SkillsList.isValidSkillsList(trimmedSkillsList)) {
             throw new IllegalValueException(SkillsList.MESSAGE_SKILLS_CONSTRAINTS);
         }
         return new SkillsList(trimmedSkillsList);
