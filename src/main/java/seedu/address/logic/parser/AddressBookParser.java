@@ -72,6 +72,9 @@ public class AddressBookParser {
         case DeleteCommand.COMMAND_WORD:
             return new DeleteCommandParser().parse(arguments);
 
+        case SkillsCommand.COMMAND_WORD:
+            return new SkillsCommandParser().parse(arguments);
+
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
 
@@ -98,9 +101,6 @@ public class AddressBookParser {
 
         case RedoCommand.COMMAND_WORD:
             return new RedoCommand();
-
-        case SkillsCommand.COMMAND_WORD:
-            return new SkillsCommand();
 
         default:
             throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
