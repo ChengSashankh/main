@@ -16,7 +16,7 @@ import seedu.address.model.person.exceptions.DuplicatePersonException;
 import seedu.address.model.person.exceptions.PersonNotFoundException;
 
 /**
- * Clears the address book.
+ * Add a list of skills to a chosen person from the address book.
  */
 public class SkillsCommand extends UndoableCommand {
 
@@ -25,8 +25,8 @@ public class SkillsCommand extends UndoableCommand {
     private Person personToAddSkills;
     private Person personWithSkills;
 
+    // TODO: Add a command alias
     public static final String COMMAND_WORD = "skills";
-    // public static final String COMMAND_ALIAS = "sk";
     public static final String MESSAGE_SUCCESS = "Skills have been added!";
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds skill list to person identified "
             + "by the index number used in the last person listing. "
@@ -69,8 +69,8 @@ public class SkillsCommand extends UndoableCommand {
     }
 
     /***
-     * TODO: Write comment here.
-     * @return
+     * Adds a {@code SkillsList} to an exisiting {@code Person}
+     * @return {@code Person} with skillsList
      */
     public static Person addSkillsToPerson(Person personToAddSkills, SkillsList skillsList) {
         Person personWithSkills = new Person(

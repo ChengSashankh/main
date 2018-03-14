@@ -28,20 +28,31 @@ public class SkillsCommandParser implements Parser<SkillsCommand> {
         Index index;
         SkillsList skillsList;
 
-        try {
-            index = ParserUtil.parseIndex(argMultimap.getPreamble());
-        } catch (IllegalValueException ive) {
-            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SkillsCommand.MESSAGE_USAGE));
-        }
+        index = getIndexFromArguments(argMultimap);
+        skillsList = getSkillsListFromArguments(argMultimap);
 
+        return new SkillsCommand(index, skillsList);
+        // TODO: Review the necessity of a skills command descriptor.
+    }
+
+    private SkillsList getSkillsListFromArguments(ArgumentMultimap argMultimap) throws ParseException {
+        SkillsList skillsList;
         try {
             skillsList = ParserUtil.parseSkillsList(argMultimap.getValue(PREFIX_SKILLS).get());
         } catch (IllegalValueException ive) {
             throw new ParseException(ive.getMessage(), ive);
         }
-        System.out.println("Skills for " + index.toString() + " are " + skillsList.toString());
-        return new SkillsCommand(index, skillsList);
-        // TODO: Review the necessity of a skills command descriptor.
+        return skillsList;
+    }
+
+    private Index getIndexFromArguments(ArgumentMultimap argMultimap) throws ParseException {
+        Index index;
+        try {
+            index = ParserUtil.parseIndex(argMultimap.getPreamble());
+        } catch (IllegalValueException ive) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, SkillsCommand.MESSAGE_USAGE));
+        }
+        return index;
     }
 
     // TODO: Review the neccesity of an optional return type function
